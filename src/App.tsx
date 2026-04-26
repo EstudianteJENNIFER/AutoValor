@@ -26,7 +26,7 @@ function App() {
     }
   }, [dark]);
 
-  // 🔁 recuperar preferencia
+  //  recuperar preferencia
   useEffect(() => {
     const saved = localStorage.getItem("theme");
     if (saved) setDark(saved === "dark");
