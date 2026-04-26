@@ -67,10 +67,16 @@ export default function Sidebar({ setPage, dark, setDark }: any) {
       {/* DARK MODE */}
       <div className="p-4">
         <button
-          onClick={() => setDark(!dark)}
-          className="flex items-center gap-2 w-full p-2 rounded-lg 
-                     transition-colors duration-300
-                     hover:bg-gray-300 dark:hover:bg-cyan-500/20"
+          onClick={() => {
+  const newDark = !dark;
+  setDark(newDark);
+
+  if (newDark) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+}}
         >
           <motion.div
             key={dark ? "sun" : "moon"}

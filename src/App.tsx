@@ -17,14 +17,12 @@ function App() {
   const [page, setPage] = useState("Inicio");
   const [dark, setDark] = useState(true);
   useEffect(() => {
-    if (dark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [dark]);
+  if (dark) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+}, [dark]);
 
   //  recuperar preferencia
   useEffect(() => {
