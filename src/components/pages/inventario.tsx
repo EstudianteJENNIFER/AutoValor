@@ -1,7 +1,12 @@
-export default function Inventario() {
+import React from 'react';
+import { InventarioFeature } from '../features/inventario/InventarioFeature';
+
+const InventarioPage: React.FC = () => {
   return (
-    <div>
-      <h1>Hola</h1>
+    <div className="min-h-screen">
+      <InventarioFeature />
     </div>
   );
-}
+};
+
+export default InventarioPage;
