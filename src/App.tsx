@@ -15,22 +15,20 @@ import Financiamiento from "./components/pages/financiamiento";
 
 function App() {
   const [page, setPage] = useState("Inicio");
-  const [dark, setDark] = useState(true);
-  useEffect(() => {
-    if (dark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [dark]);
 
-  // 🔁 recuperar preferencia
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved) setDark(saved === "dark");
-  }, []);
+  const [dark, setDark] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+
+useEffect(() => {
+  if (dark) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  localStorage.setItem("theme", dark ? "dark" : "light");
+}, [dark]);
 
   const renderPage = () => {
     switch (page) {
@@ -58,12 +56,19 @@ function App() {
   };
 
   return (
-    <div className="flex">
+    <div className="flex h-screen bg-white dark:bg-zinc-950 transition-colors duration-300">
       <Sidebar setPage={setPage} dark={dark} setDark={setDark} />
 
-      <div className="flex-1 min-h-screen bg-gray-100 dark:bg-gray-900 text-black dark:text-white p-6 transition-colors duration-300">
+      <main
+        className="
+          flex-1 overflow-y-auto
+          text-gray-900 dark:text-white
+          bg-gray-50 dark:bg-zinc-900
+          transition-colors duration-300
+        "
+      >
         {renderPage()}
-      </div>
+      </main>
     </div>
   );
 }

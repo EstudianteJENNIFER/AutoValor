@@ -1,7 +1,6 @@
-export default function Clientes() {
-  return (
-    <div>
-      <h1>Hola</h1>
-    </div>
-  );
+// pages/clientes.tsx
+import { ClientesFeature } from '../features/clientes/ClientesFeature';
+
+export default function ClientesPage() {
+  return <ClientesFeature />;
 }

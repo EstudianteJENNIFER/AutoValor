@@ -24,15 +24,17 @@ export default function Sidebar({ setPage, dark, setDark }: any) {
 
   return (
     <motion.div
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      animate={{
-        width: open ? 220 : 70,
-        backgroundColor: dark ? "#020617" : "#f1f5f9",
-      }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-      className="h-screen text-cyan-400 flex flex-col justify-between shadow-lg"
-    >
+  onMouseEnter={() => setOpen(true)}
+  onMouseLeave={() => setOpen(false)}
+  animate={{
+    width: open ? 220 : 70,
+  }}
+  transition={{ duration: 0.4, ease: "easeInOut" }}
+  className="h-screen flex flex-col justify-between shadow-lg
+  bg-slate-100 dark:bg-slate-950
+  text-cyan-600 dark:text-cyan-400
+  transition-colors duration-300"
+>
       <div>
         {/* HEADER */}
         <div className="flex items-center gap-2 p-4">
@@ -67,23 +69,21 @@ export default function Sidebar({ setPage, dark, setDark }: any) {
       {/* DARK MODE */}
       <div className="p-4">
         <button
-          onClick={() => setDark(!dark)}
-          className="flex items-center gap-2 w-full p-2 rounded-lg 
-                     transition-colors duration-300
-                     hover:bg-gray-300 dark:hover:bg-cyan-500/20"
-        >
-          <motion.div
-            key={dark ? "sun" : "moon"}
-            initial={{ rotate: -90, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            exit={{ rotate: 90, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {dark ? <Sun size={20} /> : <Moon size={20} />}
-          </motion.div>
+  onClick={() => setDark(!dark)}
+  className="flex items-center gap-2 w-full hover:bg-gray-300 dark:hover:bg-cyan-500/20 p-2 rounded transition"
+>
+  <motion.div
+    key={dark ? "sun" : "moon"}
+    initial={{ rotate: -90, opacity: 0 }}
+    animate={{ rotate: 0, opacity: 1 }}
+    exit={{ rotate: 90, opacity: 0 }}
+    transition={{ duration: 0.3 }}
+  >
+    {dark ? <Sun size={20} /> : <Moon size={20} />}
+  </motion.div>
 
-          {open && <span>{dark ? "Claro" : "Oscuro"}</span>}
-        </button>
+  {open && <span>{dark ? "Claro" : "Oscuro"}</span>}
+</button>
       </div>
     </motion.div>
   );
