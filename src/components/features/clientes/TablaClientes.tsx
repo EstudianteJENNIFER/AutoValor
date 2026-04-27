@@ -40,26 +40,26 @@ dark:border-zinc-800 dark:bg-zinc-900">
               <th className="px-6 py-4 text-xs font-bold text-gray-500 dark:text-zinc-400">ACCIONES</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-zinc-800/50">
+          <tbody className="divide-y divide-gray-200 dark:divide-zinc-800/50">
             {clientesPaginados.map((cliente) => (
-              <tr key={cliente.id} className="hover:bg-zinc-800/30">
+              <tr key={cliente.id} className="hover:bg-gray-50 dark:hover:bg-zinc-800/30">
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-3">
                     <div className={`w-9 h-9 rounded-md flex items-center justify-center font-bold border ${coloresEtiqueta[cliente.colorEtiqueta]}`}>
                       {cliente.iniciales}
                     </div>
                     <div>
-                      <p className="font-semibold text-white">{cliente.nombre}</p>
-                      <p className="text-xs text-zinc-500">{cliente.etiqueta}</p>
+                      <p className="font-semibold text-gray-900 dark:text-white">{cliente.nombre}</p>
+                      <p className="text-xs text-gray-500 dark:text-zinc-400">{cliente.etiqueta}</p>
                     </div>
                   </div>
                 </td>
-                <td className="px-6 py-4 text-zinc-300">{cliente.dni}</td>
+                <td className="px-6 py-4 text-gray-600 dark:text-zinc-300">{cliente.dni}</td>
                 <td className="px-6 py-4">
-                  <p className="text-sm text-white">{cliente.telefono}</p>
-                  <p className="text-xs text-zinc-500">{cliente.correo}</p>
+                  <p className="text-sm text-gray-700 dark:text-white">{cliente.telefono}</p>
+                  <p className="text-xs text-gray-500 dark:text-zinc-400">{cliente.correo}</p>
                 </td>
-                <td className="px-6 py-4 text-sm text-zinc-400 max-w-xs truncate">{cliente.observaciones}</td>
+                <td className="px-6 py-4 text-sm text-gray-500 dark:text-zinc-400 max-w-xs truncate">{cliente.observaciones}</td>
                 <td className="px-6 py-4 text-right flex justify-end gap-2">
                   <button
                     onClick={() => alEditar(cliente.id)}
@@ -92,7 +92,7 @@ px-6 py-4 border-t
 border-gray-200
 dark:border-zinc-800
 flex justify-between items-center">
-          <p className="text-xs text-zinc-500">Mostrando {clientesPaginados.length} de {totalFiltrados} clientes</p>
+          <p className="text-xs text-gray-500 dark:text-zinc-400">Mostrando {clientesPaginados.length} de {totalFiltrados} clientes</p>
           <div className="flex gap-2">
             <button
               onClick={() => alCambiarPagina(Math.max(1, paginaActual - 1))}
@@ -104,7 +104,7 @@ dark:bg-white/5 dark:hover:bg-white/10 dark:text-zinc-400"
             >
               <ArrowLeft className="h-4 w-4" />
             </button>
-            <span className="text-sm text-zinc-400">Página {paginaActual} de {totalPaginas || 1}</span>
+            <span className="text-sm text-gray-600 dark:text-zinc-400">Página {paginaActual} de {totalPaginas || 1}</span>
             <button
               onClick={() => alCambiarPagina(Math.min(totalPaginas, paginaActual + 1))}
               disabled={paginaActual === totalPaginas || totalPaginas === 0}
