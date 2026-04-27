@@ -3,8 +3,8 @@ import { Plus } from 'lucide-react';
 import { PanelAgregarCliente } from './PanelAgregarCliente';
 import { TarjetasClientes } from './TarjetasClientes';
 import { TablaClientes } from './TablaClientes';
-import { clientesMock } from './datosClientes';
-import type { Cliente } from './datosClientes';
+import { clientesMock } from '../../../hook/datosClientes';
+import type { Cliente } from '../../../hook/datosClientes';
 
 export function ClientesFeature() {
   const [clientes, setClientes] = useState<Cliente[]>(clientesMock);
@@ -66,11 +66,14 @@ export function ClientesFeature() {
   };
 
   return (
-    <div className="p-6 lg:p-8 max-w-7xl mx-auto">
+    <div className="p-6 lg:p-8 max-w-7xl mx-auto
+  bg-gray-50 text-gray-900
+  dark:bg-transparent dark:text-white
+  transition-colors duration-300">
       <div className="flex flex-wrap justify-between items-center gap-4 mb-8">
         <div>
-          <h2 className="text-2xl font-bold text-white">Gestión de Clientes</h2>
-          <p className="text-sm text-zinc-400 mt-1">Administra la base de datos de compradores.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Gestión de Clientes</h2>
+          <p className="text-sm text-gray-500 dark:text-zinc-400 mt-1">Administra la base de datos de compradores.</p>
         </div>
         <button
           type="button"
@@ -94,7 +97,10 @@ export function ClientesFeature() {
               setTerminoBusqueda(e.target.value);
               setPaginaActual(1);
             }}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2 text-sm text-zinc-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
+            className="w-full rounded-xl px-4 py-2 text-sm outline-none
+bg-white border border-gray-300 text-gray-900
+focus:ring-2 focus:ring-teal-500
+dark:bg-zinc-900 dark:border-zinc-800 dark:text-zinc-100"
           />
         </div>
       </div>

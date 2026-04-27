@@ -19,8 +19,9 @@ const ComprasTable = () => {
   return (
     <div className="bg-white dark:bg-zinc-900 rounded-lg overflow-hidden shadow-sm">
       <table className="w-full text-sm">
-        <thead className="bg-gray-200 text-gray-600 dark:bg-zinc-800 dark:text-zinc-400">
-          <tr>
+        <thead className="bg-gray-200 text-gray-600 dark:bg-zinc-800 dark:text-zinc-300">
+          <tr className="border-t border-gray-300 hover:bg-gray-100 
+               dark:border-zinc-800 dark:hover:bg-zinc-800">
             <th className="p-3 text-left">Proveedor</th>
             <th className="p-3">Marca</th>
             <th className="p-3">Modelo</th>

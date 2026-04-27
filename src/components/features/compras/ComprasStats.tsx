@@ -11,12 +11,12 @@ const ComprasStats = () => {
       {stats.map((stat, i) => (
         <div
           key={i}
-          className="bg-white dark:bg-zinc-900 p-4 rounded-lg shadow-sm"
+          className="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 p-4 rounded-lg shadow-sm"
         >
           <p className="text-sm text-gray-500 dark:text-zinc-400">
             {stat.title}
           </p>
-          <h2 className="text-xl font-bold">{stat.value}</h2>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">{stat.value}</h2>
         </div>
       ))}
     </div>

@@ -1,5 +1,5 @@
 import { X } from 'lucide-react';
-import type { Cliente } from './datosClientes';
+import type { Cliente } from '../../../hook/datosClientes';
 import type { FormEvent } from 'react';
 
 interface PanelAgregarClienteProps {
@@ -31,43 +31,58 @@ export function PanelAgregarCliente({ abierto, cerrar, alGuardar }: PanelAgregar
   return (
     <>
       <div className="fixed inset-0 bg-black/60 z-40" onClick={cerrar} />
-      <div className="fixed right-0 top-0 h-full w-96 bg-zinc-900 border-l border-zinc-800 z-50 shadow-2xl">
+      <div className="fixed right-0 top-0 h-full w-96
+bg-white border-l border-gray-200
+dark:bg-zinc-900 dark:border-zinc-800
+z-50 shadow-2xl">
         <form onSubmit={manejarEnvio} className="h-full flex flex-col">
           <div className="p-6 border-b border-zinc-800 flex justify-between items-center">
-            <h3 className="text-lg font-bold text-white">Añadir Nuevo Cliente</h3>
-            <button type="button" onClick={cerrar} className="text-zinc-500 hover:text-white transition-colors duration-200" aria-label="Cerrar panel">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Añadir Nuevo Cliente</h3>
+            <button type="button" onClick={cerrar} className="text-gray-500 hover:text-gray-800 dark:text-zinc-500 dark:hover:text-white">
               <X className="h-4 w-4" />
             </button>
           </div>
           <div className="flex-1 overflow-y-auto p-6 space-y-4">
             <div>
-              <label className="block text-xs font-bold text-zinc-500 mb-1">NOMBRE COMPLETO *</label>
-              <input name="nombre" required className="w-full bg-zinc-800 border border-zinc-700 rounded-md p-2 text-white" />
+              <label className="block text-xs font-bold text-gray-500 dark:text-zinc-500 mb-1">NOMBRE COMPLETO *</label>
+              <input name="nombre" required className="w-full rounded-md p-2
+bg-white border border-gray-300 text-gray-900
+dark:bg-zinc-800 dark:border-zinc-700 dark:text-white"/>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-zinc-500 mb-1">DNI *</label>
-                <input name="dni" required className="w-full bg-zinc-800 border border-zinc-700 rounded-md p-2 text-white" />
+                <label className="block text-xs font-bold text-gray-500 dark:text-zinc-500 mb-1">DNI *</label>
+                <input name="dni" required className="w-full rounded-md p-2
+bg-white border border-gray-300 text-gray-900
+dark:bg-zinc-800 dark:border-zinc-700 dark:text-white" />
               </div>
               <div>
-                <label className="block text-xs font-bold text-zinc-500 mb-1">TELÉFONO *</label>
-                <input name="telefono" required className="w-full bg-zinc-800 border border-zinc-700 rounded-md p-2 text-white" />
+                <label className="block text-xs font-bold text-gray-500 dark:text-zinc-500 mb-1">TELÉFONO *</label>
+                <input name="telefono" required className="w-full rounded-md p-2
+bg-white border border-gray-300 text-gray-900
+dark:bg-zinc-800 dark:border-zinc-700 dark:text-white" />
               </div>
             </div>
             <div>
-              <label className="block text-xs font-bold text-zinc-500 mb-1">CORREO ELECTRÓNICO *</label>
-              <input name="correo" type="email" required className="w-full bg-zinc-800 border border-zinc-700 rounded-md p-2 text-white" />
+              <label className="block text-xs font-bold text-gray-500 dark:text-zinc-500 mb-1">CORREO ELECTRÓNICO *</label>
+              <input name="correo" type="email" required className="w-full rounded-md p-2
+bg-white border border-gray-300 text-gray-900
+dark:bg-zinc-800 dark:border-zinc-700 dark:text-white" />
             </div>
             <div>
-              <label className="block text-xs font-bold text-zinc-500 mb-1">OBSERVACIONES</label>
+              <label className="block text-xs font-bold text-gray-500 dark:text-zinc-500 mb-1">OBSERVACIONES</label>
               <textarea name="observaciones" rows={3} className="w-full bg-zinc-800 border border-zinc-700 rounded-md p-2 text-white" />
             </div>
           </div>
           <div className="p-6 border-t border-zinc-800 flex gap-4">
-            <button type="button" onClick={cerrar} className="flex-1 px-4 py-2 border border-zinc-700 rounded-md text-zinc-400">
+            <button type="button" onClick={cerrar} className="flex-1 px-4 py-2 border rounded-md
+border-gray-300 text-gray-600
+dark:border-zinc-700 dark:text-zinc-400">
               Cancelar
             </button>
-            <button type="submit" className="flex-1 px-4 py-2 bg-teal-600 hover:bg-teal-500 rounded-md text-white font-semibold">
+            <button type="submit" className="flex-1 px-4 py-2 border rounded-md
+border-gray-300 text-gray-600
+dark:border-zinc-700 dark:text-zinc-400">
               Guardar
             </button>
           </div>

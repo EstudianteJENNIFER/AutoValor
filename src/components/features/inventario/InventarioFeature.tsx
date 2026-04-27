@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Plus } from 'lucide-react';
 import { FiltrosInventario } from './FiltrosInventario';
 import { TablaInventario } from './TablaInventario';
-import { vehiculosMock } from './datosInventario';
+import { vehiculosMock } from '../../../hook/datosInventario';
 
 export const InventarioFeature: React.FC = () => {
   const [modoVista, setModoVista] = useState<'grid' | 'list'>('grid');
@@ -62,56 +62,72 @@ export const InventarioFeature: React.FC = () => {
     tipoSeleccionado !== 'Tipo: Todos' ||
     terminoBusqueda !== '';
 
-  return (
-    <div className="p-6 lg:p-8 max-w-7xl mx-auto">
-      <div className="flex flex-wrap justify-between items-end gap-4 mb-6">
-        <div>
-          <h2 className="text-2xl font-bold text-white">Inventario de Vehículos</h2>
-          <p className="text-sm text-zinc-400">Administra el stock actual y estados de disponibilidad en tiempo real.</p>
-        </div>
-        <button className="bg-teal-600 hover:bg-teal-500 text-white font-semibold px-5 py-2 rounded-lg flex items-center gap-2 transition-all text-sm">
-          <Plus size={18} />
-          Nuevo Vehículo
-        </button>
+return (
+  <div className="
+    p-6 lg:p-8 max-w-7xl mx-auto
+    bg-gray-50 text-gray-900
+    dark:bg-transparent dark:text-white
+    transition-colors duration-300
+  ">
+    <div className="flex flex-wrap justify-between items-end gap-4 mb-6">
+
+      <div>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Inventario de Vehículos
+        </h2>
+
+        <p className="text-sm text-gray-500 dark:text-zinc-400">
+          Administra el stock actual y estados de disponibilidad en tiempo real.
+        </p>
       </div>
 
-      <FiltrosInventario
-        marcas={marcas}
-        tipos={tipos}
-        marcaSeleccionada={marcaSeleccionada}
-        tipoSeleccionado={tipoSeleccionado}
-        terminoBusqueda={terminoBusqueda}
-        modoVista={modoVista}
-        cantidadResultados={vehiculosFiltrados.length}
-        alCambiarMarca={(valor) => {
-          setMarcaSeleccionada(valor);
-          setPaginaActual(1);
-        }}
-        alCambiarTipo={(valor) => {
-          setTipoSeleccionado(valor);
-          setPaginaActual(1);
-        }}
-        alCambiarBusqueda={(valor) => {
-          setTerminoBusqueda(valor);
-          setPaginaActual(1);
-        }}
-        alLimpiarFiltros={limpiarFiltros}
-        alCambiarVista={(modo) => {
-          setModoVista(modo);
-          setPaginaActual(1);
-        }}
-        hayFiltrosActivos={hayFiltrosActivos}
-      />
-
-      <TablaInventario
-        modoVista={modoVista}
-        vehiculosPaginados={vehiculosPaginados}
-        vehiculosFiltrados={vehiculosFiltrados}
-        paginaActual={paginaActual}
-        totalPaginas={totalPaginas}
-        alCambiarPagina={setPaginaActual}
-        alLimpiarFiltros={limpiarFiltros}
-      />
+      <button className="
+        bg-teal-600 hover:bg-teal-500 text-white
+        font-semibold px-5 py-2 rounded-lg flex items-center gap-2
+        transition-all text-sm
+      ">
+        <Plus size={18} />
+        Nuevo Vehículo
+      </button>
     </div>
-  );
+
+    <FiltrosInventario
+      marcas={marcas}
+      tipos={tipos}
+      marcaSeleccionada={marcaSeleccionada}
+      tipoSeleccionado={tipoSeleccionado}
+      terminoBusqueda={terminoBusqueda}
+      modoVista={modoVista}
+      cantidadResultados={vehiculosFiltrados.length}
+      alCambiarMarca={(valor) => {
+        setMarcaSeleccionada(valor);
+        setPaginaActual(1);
+      }}
+      alCambiarTipo={(valor) => {
+        setTipoSeleccionado(valor);
+        setPaginaActual(1);
+      }}
+      alCambiarBusqueda={(valor) => {
+        setTerminoBusqueda(valor);
+        setPaginaActual(1);
+      }}
+      alLimpiarFiltros={limpiarFiltros}
+      alCambiarVista={(modo) => {
+        setModoVista(modo);
+        setPaginaActual(1);
+      }}
+      hayFiltrosActivos={hayFiltrosActivos}
+    />
+
+    <TablaInventario
+      modoVista={modoVista}
+      vehiculosPaginados={vehiculosPaginados}
+      vehiculosFiltrados={vehiculosFiltrados}
+      paginaActual={paginaActual}
+      totalPaginas={totalPaginas}
+      alCambiarPagina={setPaginaActual}
+      alLimpiarFiltros={limpiarFiltros}
+    />
+  </div>
+);
 };

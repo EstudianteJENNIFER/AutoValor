@@ -18,9 +18,12 @@ export function TarjetasClientes({ totalClientes }: TarjetasClientesProps) {
         const Icon = item.icono;
         const valor = item.valorFijo ?? totalClientes;
         return (
-          <div key={item.titulo} className="bg-zinc-900/50 border border-zinc-800 p-4 rounded-xl">
-            <p className="text-xs font-bold text-zinc-500">{item.titulo}</p>
-            <p className="text-2xl font-bold text-white">{valor}</p>
+          <div key={item.titulo} className="
+bg-white border border-gray-200
+dark:bg-zinc-900/50 dark:border-zinc-800
+p-4 rounded-xl transition-colors">
+            <p className="text-xs font-bold text-gray-500 dark:text-zinc-500">{item.titulo}</p>
+            <p className="text-2xl font-bold text-gray-900 dark:text-white">{valor}</p>
             <div className="flex items-center gap-2 mt-2 text-teal-500 text-xs">
               <Icon className="h-4 w-4" />
               {item.descripcion}
