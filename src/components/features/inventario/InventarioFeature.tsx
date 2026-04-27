@@ -80,15 +80,6 @@ return (
           Administra el stock actual y estados de disponibilidad en tiempo real.
         </p>
       </div>
-
-      <button className="
-        bg-teal-600 hover:bg-teal-500 text-white
-        font-semibold px-5 py-2 rounded-lg flex items-center gap-2
-        transition-all text-sm
-      ">
-        <Plus size={18} />
-        Nuevo Vehículo
-      </button>
     </div>
 
     <FiltrosInventario
